@@ -22,7 +22,16 @@ app.use(morgan("combined"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+
+let corsOptions = {
+    origin: [
+        "https://stay-withme.netlify.app/",
+        "https://stay-withme-admin.netlify.app/",
+    ],
+    optionsSuccessStatus: 200, // For legacy browser support
+};
+
+app.use(cors(corsOptions));
 app.use("/hotels", hotelRoutes);
 app.use("/users", userRoutes);
 app.use("/admins", adminRoutes);
