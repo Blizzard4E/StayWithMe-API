@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const jwt_decode = require("jwt-decode");
-const cors = require("cors");
+//const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { createClient } = require("@supabase/supabase-js");
 const app = express();
@@ -31,7 +31,7 @@ let corsOptions = {
     optionsSuccessStatus: 200, // For legacy browser support
 };
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 app.use("/hotels", hotelRoutes);
 app.use("/users", userRoutes);
 app.use("/admins", adminRoutes);
