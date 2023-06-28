@@ -27,7 +27,7 @@ let corsOptions = {
     origin: [
         "https://stay-withme.netlify.app/",
         "https://stay-withme-admin.netlify.app/",
-        "http://localhost:3000/",
+        "http://localhost:5173/",
     ],
     optionsSuccessStatus: 200, // For legacy browser support
 };
