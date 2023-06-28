@@ -1,7 +1,6 @@
 {
     "scripts": {
-        "start": "netlify-lambda serve src",
-        "build": "netlify-lambda build src"
+        "build": "netlify deploy --prod"
     },
     "dependencies": {
         "@supabase/supabase-js": "^2.25.0",

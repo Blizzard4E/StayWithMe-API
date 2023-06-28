@@ -35,7 +35,7 @@ const router = express.Router();
 // });
 
 // Create a single supabase client for interacting with your database
-const supabase = createClient(process.env.URL, process.env.API_KEY);
+const supabase = createClient(process.env.SUPA_URL, process.env.API_KEY);
 //console.log('Supabase Instance: ', supabase)
 
 router.get("/", async (req, res) => {

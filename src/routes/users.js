@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const jwt_decode = require("jwt-decode");
 require("dotenv").config();
-const supabase = createClient(process.env.URL, process.env.API_KEY);
+const supabase = createClient(process.env.SUPA_URL, process.env.API_KEY);
 const saltRounds = 10;
 const accessTokenExpirationTime = "15m"; // 15 minutes
 const refreshTokenExpirationTime = "200d"; // 100 days
