@@ -23,13 +23,10 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-let corsOptions = {
-    origin: [
-        "https://stay-withme.netlify.app/",
-        "https://stay-withme-admin.netlify.app/",
-        "http://localhost:5173/",
-    ],
-    optionsSuccessStatus: 200, // For legacy browser support
+const corsOptions = {
+    origin: "*",
+    credentials: true, //access-control-allow-credentials:true
+    optionSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
