@@ -114,14 +114,14 @@ router.post("/update", async (req, res) => {
             return res.send(err);
         });
         if (accountCheck.status == 200) {
-            let user_id = req.body.user_id;
+            const user_id = req.body.user_id;
             let neWData = req.body;
             delete neWData["token"];
             delete neWData["user_id"];
             const { error } = await supabase
                 .from("users")
                 .update(neWData)
-                .eq("id", req.body.user_id);
+                .eq("id", user_id);
             if (error) {
                 return res.send({
                     status: 401,
