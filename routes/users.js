@@ -114,13 +114,13 @@ router.post("/update", async (req, res) => {
             return res.send(err);
         });
         if (accountCheck.status == 200) {
+            let user_id = req.body.user_id;
+            let neWData = req.body;
+            delete neWData["token"];
+            delete neWData["user_id"];
             const { error } = await supabase
                 .from("users")
-                .update({
-                    username: req.body.username,
-                    bio: req.body.bio,
-                    profile_pic: req.body.profile_pic,
-                })
+                .update(neWData)
                 .eq("id", req.body.user_id);
             if (error) {
                 return res.send({
