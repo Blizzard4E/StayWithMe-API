@@ -13,11 +13,9 @@ require("dotenv").config();
 
 const accessTokenExpirationTime = "15m"; // 15 minutes
 const refreshTokenExpirationTime = "200d"; // 100 days
-
 const hotelRoutes = require("./routes/hotels");
 const userRoutes = require("./routes/users");
 const adminRoutes = require("./routes/admins");
-
 app.use(morgan("combined"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
