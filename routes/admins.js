@@ -297,7 +297,7 @@ router.post("/ratings", async (req, res) => {
                 .select(
                     "*, hotel_id(id, banned, name, images, email, description, country, googleMap, ratings)"
                 )
-                .lte("ratings", 3)
+                .lte("ratings", 2)
                 .order("created_at", { ascending: true });
 
             if (ratingsData.error) {
