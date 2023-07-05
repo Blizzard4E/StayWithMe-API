@@ -332,7 +332,8 @@ router.post("/getHotels", async (req, res) => {
             const { data } = await supabase
                 .from("hotels")
                 .select("id, name, country, ratings, images")
-                .order("created_at", { ascending: false });
+                .order("created_at", { ascending: false })
+                .eq("banned", false);
             res.send({
                 status: 200,
                 message: "Successfully get all hotels",
