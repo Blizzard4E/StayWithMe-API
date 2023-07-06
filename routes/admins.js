@@ -46,6 +46,29 @@ function authToken(token) {
     });
 }
 
+router.post("/getAllHotels", async (req, res) => {
+    if (req.body.token) {
+        const tokenCheck = await authToken(req.body.token).catch((err) => {
+            return res.send(err);
+        });
+        if (tokenCheck) {
+            delete req.body["token"];
+            const hotelsList = await supabase.from("hotels").select();
+            if (hotelsList.error) {
+                return res.send({
+                    status: 401,
+                    message: adminsList.error,
+                });
+            }
+            return res.send({
+                status: 200,
+                message: "Successfully get all hotels",
+                data: hotelsList.data,
+            });
+        }
+    } else return res.send({ status: 401, message: "Unauthorized Access" });
+});
+
 router.post("/all", async (req, res) => {
     if (req.body.token) {
         const tokenCheck = await authToken(req.body.token).catch((err) => {

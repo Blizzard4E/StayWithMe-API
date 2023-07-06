@@ -58,7 +58,7 @@ function authToken(token) {
 }
 
 router.post("/report", async (req, res) => {
-    if (req.body.token) {
+    if (req.body.token && req.body.user_id && req.body.review_id) {
         const accountCheck = await authToken(req.body.token).catch((err) => {
             return res.send(err);
         });
@@ -83,7 +83,7 @@ router.post("/report", async (req, res) => {
 });
 
 router.post("/searchHotels", async (req, res) => {
-    if (req.body.token) {
+    if (req.body.token && req.body.country) {
         const accountCheck = await authToken(req.body.token).catch((err) => {
             return res.send(err);
         });
