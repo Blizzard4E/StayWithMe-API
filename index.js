@@ -23,8 +23,8 @@ app.use(bodyParser.json());
 
 const corsOptions = {
     origin: "*",
-    credentials: true, //access-control-allow-credentials:true
-    optionSuccessStatus: 200,
+    methods: ["GET", "POST"], // Specify the allowed methods
+    optionsSuccessStatus: 200, // Some legacy browsers (IE11) choke on 204
 };
 
 app.use(cors(corsOptions));
